@@ -1,18 +1,19 @@
 from cs50 import get_string
 import re
 
-# Ask user for Credit Card number
-ccNumber = get_string("Credit card number: ")
-digits = len(ccNumber)
+# Declare global variables
+ccNumber = ""
+digits = 0
 while True:
+    # Ask user for Credit Card number
+    ccNumber = get_string("Credit card number: ")
+    digits = len(ccNumber)
     # If user input is not numerical, ask again
-    if ccNumber.isnumeric() is False:
+    if not ccNumber.isnumeric():
         print("Only numbers accepted")
-        ccNumber = get_string("Credit card number: ")
     # If user input is not valid length, print invalid
     elif digits < 13 or digits > 16:
         print("INVALID")
-        exit(1)
     # If credit card number passes these tests, move on
     else:
         break
